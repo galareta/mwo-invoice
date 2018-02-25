@@ -104,4 +104,33 @@ public class InvoiceTest {
 	public void testInvoiceWithNegativeQuantity() {
 		invoice.addProduct(new DairyProduct("Zsiadle mleko", new BigDecimal("5.55")), -1);
 	}
+	
+	@Test
+	public void testInvoiceHasNumberGreaterThanZero(){
+		int number = invoice.getNumber();
+		Assert.assertThat(number, Matchers.greaterThan(0));
+	}
+	
+	@Test
+	public void testTwoInvoicesHaveDifferentNumbers(){
+		int number1 = invoice.getNumber();
+		int number2 = new Invoice().getNumber();
+
+		Assert.assertNotEquals(number1, number2);
+	}
+	
+	@Test
+	public void testTheSameInvoiceHasTheSameNumber(){
+		int number1 = invoice.getNumber();
+		
+		
+		Assert.assertEquals(invoice.getNumber(),invoice.getNumber());
+		
+	}
+	@Test
+	public void testTheSecondInvoiceHasGreaterNumber(){
+		assert.assertThat(invoice.getNumber(),Matchers.LessThan(new Invoice(),getNumber()));
+	}
+	
+	
 }

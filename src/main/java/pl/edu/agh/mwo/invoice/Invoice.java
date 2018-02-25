@@ -12,6 +12,10 @@ public class Invoice {
 	public void addProduct(Product product) {
 		addProduct(product, 1);
 	}
+	
+	public Invoice(){
+		this.number = new Random().nextInt(8888);
+	}
 
 	public void addProduct(Product product, Integer quantity) {
 		if (product == null || quantity <= 0) {
@@ -41,4 +45,11 @@ public class Invoice {
 		}
 		return totalGross;
 	}
+
+	public int getNumber() {
+		// TODO Auto-generated method stub
+		return new Random().nextInt(999);
+	}
+	
+	
 }
